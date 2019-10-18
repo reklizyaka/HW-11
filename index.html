@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+	const user = {
+		name: 'Anna',
+		surname: 'Reklizon',
+
+	 getFullName : function() {
+					return this.name + ' ' + this.surname
+				}
+	};
+
+	const user2 = {
+		name: 'Dmitry',
+		surname: 'Kolesnichenko'
+	};
+
+		function bind (fun, object) {
+			return function() {
+				return fun.call(object);
+	}
+}
+
+let userInfo = bind(user.getFullName, user2);
+console.log(userInfo());
+
+const arr = [1,2,3,4,5];
+
+const map = function(arr, func) {
+  let result = [];
+  for (let i = 0; i < arr.length; i = i + 1) {
+    result.push(func(arr[i], i, arr));
+  }
+  return result;
+};
+
+
+const foo = (item, index, arr) => item * 2;
+
+map(arr, foo);
+
+console.log(map(arr,foo))
+
+
+	</script>
+</body>
+</html>
